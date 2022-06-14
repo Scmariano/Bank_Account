@@ -30,6 +30,7 @@ class BankAccount:
             self.balance += self.balance * self.int_rate
         return self
         
+    # NINJA BONUS: use a classmethod to print all instances of a Bank Account's info    
     @classmethod
     def all_Bank_accounts(cls):
         for allAccount in cls.all_accounts:
