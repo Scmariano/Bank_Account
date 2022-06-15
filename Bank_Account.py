@@ -14,7 +14,7 @@ class BankAccount:
         return self
     def withdraw(self, amount):
         # your code here
-        if amount < self.balance:
+        if self.balance - amount  >= 0:
             self.balance -= amount
         else :
             print("Insufficient funds: Charging a $5 fee ")
@@ -24,12 +24,13 @@ class BankAccount:
     def display_account_info(self):
         # your code here
         print(f"Balance: {self.balance}")
+        
     def yield_interest(self):
         # your code here
         if self.balance > 0:
-            self.balance += self.balance * self.int_rate
+            self.balance += (self.balance * self.int_rate)
         return self
-        
+
     # NINJA BONUS: use a classmethod to print all instances of a Bank Account's info    
     @classmethod
     def all_Bank_accounts(cls):
@@ -37,11 +38,11 @@ class BankAccount:
             allAccount.display_account_info()
 
 
-Account = BankAccount(0.04, 100)
+Account = BankAccount(0.05, 100)
 Account2 = BankAccount(0.03, 1000)
 
 
-Account.deposit(100).deposit(100).deposit(100).withdraw(20).yield_interest().display_account_info()
+Account.deposit(100).deposit(100).deposit(100).withdraw(50).yield_interest().display_account_info()
 Account2.deposit(100).deposit(100).withdraw(100).withdraw(20).withdraw(60).withdraw(20).yield_interest().display_account_info()
 
 BankAccount.all_Bank_accounts()
